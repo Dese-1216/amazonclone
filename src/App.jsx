@@ -1,17 +1,16 @@
-
-import './App.css'
-import CarouselEffect from './components/Carousel/CarouselEffect'
-import Header from './components/Header/Header'
+import "./App.css";
+import CarouselEffect from "./components/Carousel/CarouselEffect";
+import Category from "./components/Category/Category";
+import Header from "./components/Header/Header";
 
 function App() {
-  
-
   return (
     <>
-    <Header/>
-        <CarouselEffect/>
+      <Header />
+      <CarouselEffect />
+      <Category />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
