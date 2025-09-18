@@ -10,4 +10,3 @@ const LayOut = ({ children }) => {
 };
 
 export default LayOut;
-

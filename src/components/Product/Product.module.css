@@ -76,10 +76,10 @@
     margin-right: 40px;
 }
 .product_flexed{
-    height: 50vh;
+    height:50vh;
 }
 .product_flexed img{
-    width: 200px !important;
+    width: 300px !important;
     height: auto;
 }
 @media screen and (max-width: 760px){

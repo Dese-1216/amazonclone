@@ -4,9 +4,17 @@ import { IoSearch } from "react-icons/io5";
 import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
-
+import { useContext } from "react";
+import { DataContext } from "../DataProvider/DataProvider";
 
 function Header() {
+  //consume the value
+  const [{ user, basket }, dispatch] = useContext(DataContext);
+  // console.log(basket);
+  //use reduce function and add them to the previous
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
 
   return (
     <>
@@ -58,17 +66,10 @@ function Header() {
             {/* signIN */}
             <Link to="./">
               <div>
-                {/* {user ? ( */}
-                <>
-                  {/* <p>Hello {user?.email?.split("@")[0]}</p>
-                    <span onClick={() => auth.signOut()}>Sign Out</span> */}
-                </>
-                {/* ) : ( */}
                 <>
                   <p>Hello, Sign In</p>
                   <span>Account & Lists</span>
                 </>
-                {/* )} */}
               </div>
             </Link>
             {/* orders */}
@@ -81,12 +82,14 @@ function Header() {
             {/* cart */}
             <Link to="/cart" className={classes.cart}>
               <BiCart size={35} />
-              {/* <span>{totalItem}</span> */}
+              {/* it can use direct array property */}
+              {/* <span>{basket.length}</span> */}
+              <span>{totalItem}</span>
             </Link>
           </div>
         </div>
+        <LowerHeader />
       </section>
-      <LowerHeader />
     </>
   );
 }
